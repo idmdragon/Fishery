@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Fishery</string>
+    <string name="title_feature">Module Title</string>
 </resources>
