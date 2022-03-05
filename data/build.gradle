@@ -13,6 +13,10 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
+
+        buildConfigField "String", "BASE_URL", "\"https://stein.efishery.com\""
+        buildConfigField "String", "API_KEY", "\"5e1edf521073e315924ceab4\""
+
     }
 
     buildTypes {
