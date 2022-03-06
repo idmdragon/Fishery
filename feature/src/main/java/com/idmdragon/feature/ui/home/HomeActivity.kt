@@ -29,7 +29,6 @@ class HomeActivity : AppCompatActivity() {
         loadKoinModules(featureModule)
         setupObserver()
         setupListener()
-
     }
 
     private fun setupListener() {
@@ -60,7 +59,6 @@ class HomeActivity : AppCompatActivity() {
                     ).show()
                 }
             }
-
         }
     }
 

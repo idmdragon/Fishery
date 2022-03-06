@@ -6,7 +6,9 @@ import com.idmdragon.data.source.NetworkBoundResource
 import com.idmdragon.data.source.local.LocalDataSource
 import com.idmdragon.data.source.remote.RemoteDataSource
 import com.idmdragon.data.source.remote.response.ApiResponse
+import com.idmdragon.data.source.remote.response.AreaResponse
 import com.idmdragon.data.source.remote.response.FisheryResponse
+import com.idmdragon.domain.model.Area
 import com.idmdragon.domain.model.Fishery
 import com.idmdragon.domain.repository.FisheryRepository
 import com.idmdragon.domain.utils.Resource
@@ -34,6 +36,24 @@ class FisheryRepositoryImpl(
 
         }.asFlow()
 
+
+    override fun getAllArea(): Flow<Resource<List<Area>>> =
+        object : NetworkBoundResource<List<Area>, List<AreaResponse>>() {
+
+            override fun shouldFetch(data: List<Area>?): Boolean =
+                data == null || data.isEmpty()
+
+            override suspend fun saveCallResult(data: List<AreaResponse>) {
+                local.insertArea(data.toEntities())
+            }
+
+            override fun loadFromDB(): Flow<List<Area>> =
+                local.getAllArea().toFlowModels()
+
+            override suspend fun createCall(): Flow<ApiResponse<List<AreaResponse>>> =
+                remote.getListAreaItem()
+
+        }.asFlow()
 
 }
 

@@ -20,7 +20,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tambahkan Item"
+        android:text="@string/feature_text_add_item"
         android:textColor="@color/black"
         android:textSize="@dimen/text_size_18x"
         android:textStyle="bold"
@@ -79,46 +79,48 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tilCityArea"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            style="@style/FisherySpinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/spacing_10x"
-            android:hint="@string/feature_text_city_area"
             app:boxBackgroundColor="@color/white"
             app:boxStrokeColor="@color/blue"
-            app:hintTextColor="@color/blue">
+            >
             <AutoCompleteTextView
+                android:id="@+id/autoCompleteCity"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:hint="@string/feature_text_city_area"
+                app:hintTextColor="@color/blue"
                 android:backgroundTint="@android:color/transparent"
                 android:inputType="none" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tilProvinceArea"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            style="@style/FisherySpinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/spacing_10x"
-            android:hint="@string/feature_text_province_area"
             app:boxBackgroundColor="@color/white"
             app:boxStrokeColor="@color/blue"
-            app:hintTextColor="@color/blue"
             >
             <AutoCompleteTextView
+                android:id="@+id/autoCompleteProvince"
                 android:layout_width="match_parent"
+                app:hintTextColor="@color/blue"
                 android:layout_height="match_parent"
+                android:hint="@string/feature_text_province_area"
                 android:backgroundTint="@android:color/transparent"
                 android:inputType="none" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tilSize"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            style="@style/FisherySpinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/spacing_10x"
-            android:hint="@string/feature_text_province_area"
             app:boxBackgroundColor="@color/white"
             app:boxStrokeColor="@color/blue"
             app:hintTextColor="@color/blue"
@@ -126,6 +128,7 @@
             <AutoCompleteTextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:hint="@string/feature_text_size"
                 android:backgroundTint="@android:color/transparent"
                 android:inputType="none"/>
         </com.google.android.material.textfield.TextInputLayout>

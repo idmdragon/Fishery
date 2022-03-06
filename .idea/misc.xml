@@ -7,8 +7,9 @@
         <entry key="feature/src/main/res/drawable/bg_gray_radius_10.xml" value="0.1885" />
         <entry key="feature/src/main/res/drawable/bg_radius_10.xml" value="0.1885" />
         <entry key="feature/src/main/res/drawable/ic_search.xml" value="0.1885" />
-        <entry key="feature/src/main/res/layout/activity_add.xml" value="0.25" />
+        <entry key="feature/src/main/res/layout/activity_add.xml" value="0.33" />
         <entry key="feature/src/main/res/layout/activity_home.xml" value="0.33" />
+        <entry key="feature/src/main/res/layout/category_list_dropdown_menu.xml" value="0.328125" />
         <entry key="feature/src/main/res/layout/item_fishery.xml" value="0.75" />
       </map>
     </option>
