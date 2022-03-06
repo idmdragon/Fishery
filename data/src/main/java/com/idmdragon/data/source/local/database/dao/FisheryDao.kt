@@ -18,7 +18,10 @@ interface FisheryDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertFishery(fishery: FisheryEntity)
 
-    @Query("SELECT * FROM FisheryEntity ORDER BY timestamp ASC")
+    @Query("SELECT * FROM FisheryEntity " +
+            "WHERE KOMODITAS IS NOT NULL " +
+            "AND PRICE IS NOT NULL" +
+            " ORDER BY timestamp ASC  ")
     fun selectAllFishery(): Flow<List<FisheryEntity>>
 
     @Query("SELECT * FROM AreaEntity")

@@ -8,4 +8,5 @@
     <string name="feature_text_province_area">Masukkan Area Provinsi</string>
     <string name="feature_text_size">Masukkan Size</string>
     <string name="feature_text_add_item">Tambahkan Item</string>
+    <string name="feature_cd_back_button">Tombol Kembali</string>
 </resources>

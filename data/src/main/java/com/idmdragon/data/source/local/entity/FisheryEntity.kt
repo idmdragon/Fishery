@@ -12,6 +12,6 @@ data class FisheryEntity(
     val size: String?,
     val tgl_parsed: String?,
     val timestamp: String?,
-    @PrimaryKey(autoGenerate = true)
-    val uuid: Int = 0
+    @PrimaryKey
+    val uuid: String
 )

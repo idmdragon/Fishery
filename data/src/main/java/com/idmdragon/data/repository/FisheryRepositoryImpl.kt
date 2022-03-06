@@ -33,8 +33,13 @@ class FisheryRepositoryImpl(
             override suspend fun createCall(): Flow<ApiResponse<List<FisheryResponse>>> =
                 remote.getAllFishery()
 
-            override suspend fun saveCallResult(data: List<FisheryResponse>) =
-                local.insertListFishery(data.toEntities())
+            override suspend fun saveCallResult(data: List<FisheryResponse>) {
+                data.filter { fisheryResponse ->
+                    fisheryResponse.uuid !=null && fisheryResponse.price!=null
+                }.let {
+                    local.insertListFishery(it.toEntities())
+                }
+            }
 
         }.asFlow()
 

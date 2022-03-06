@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.map
 
 fun FisheryResponse.toEntity(): FisheryEntity =
     FisheryEntity(
-       area_kota, area_provinsi, komoditas, price, size, tgl_parsed, timestamp
+       area_kota, area_provinsi, komoditas, price, size, tgl_parsed, timestamp, uuid.toString()
     )
 
 fun FisheryEntity.toModel(): Fishery =

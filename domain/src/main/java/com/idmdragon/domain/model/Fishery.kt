@@ -8,5 +8,5 @@ data class Fishery(
     val size: String?,
     val tgl_parsed: String?,
     val timestamp: String?,
-    val uuid: Int
+    val uuid: String
 )
