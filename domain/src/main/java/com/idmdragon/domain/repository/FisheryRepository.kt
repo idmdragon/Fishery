@@ -10,4 +10,5 @@ interface FisheryRepository {
     fun getAllFishery(): Flow<Resource<List<Fishery>>>
     fun getAllArea(): Flow<Resource<List<Area>>>
     fun getAllSize(): Flow<Resource<List<Size>>>
+    fun searchItem(query: String): Flow<Resource<List<Fishery>>>
 }

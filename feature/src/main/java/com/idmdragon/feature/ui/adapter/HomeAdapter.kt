@@ -5,10 +5,13 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.idmdragon.domain.model.Fishery
+import com.idmdragon.feature.R
 import com.idmdragon.feature.databinding.ItemFisheryBinding
+import com.idmdragon.feature.utils.ConverterHelper
+import java.util.*
 
 
-class HomeAdapter (private val context: Context) : RecyclerView.Adapter<HomeAdapter.ViewHolder>() {
+class HomeAdapter : RecyclerView.Adapter<HomeAdapter.ViewHolder>() {
 
     private val items = arrayListOf<Fishery>()
 
@@ -34,9 +37,13 @@ class HomeAdapter (private val context: Context) : RecyclerView.Adapter<HomeAdap
         fun bind(item: Fishery) {
             with(binding) {
                 item.apply {
-                    tvDate.text = tgl_parsed
+                    tvDate.text = item.timestamp?.let { ConverterHelper.convertMillisToString(it.toLong()) }
                     tvKomoditas.text = komoditas
-                    tvLocation.text = area_kota+","+area_provinsi
+                    tvLocation.text = itemView.context.getString(
+                        R.string.feature_text_location,
+                        area_kota.toString().lowercase().replaceFirstChar { it.uppercase() },
+                        area_provinsi.toString().lowercase().replaceFirstChar { it.uppercase() }
+                    )
                     tvPrice.text = price
                     tvSize.text = size
                 }

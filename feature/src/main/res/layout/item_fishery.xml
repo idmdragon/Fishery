@@ -11,12 +11,11 @@
 
     <FrameLayout
         android:id="@+id/layoutSize"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/spacing_40x"
+        android:layout_height="@dimen/spacing_40x"
         android:layout_marginVertical="@dimen/spacing_x24"
         android:layout_marginStart="@dimen/spacing_16x"
         android:background="@drawable/bg_circle"
-        android:padding="@dimen/spacing_8x"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -26,6 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/blue"
+            android:layout_gravity="center"
             android:textStyle="bold"
             tools:text="30" />
     </FrameLayout>

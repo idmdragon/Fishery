@@ -35,7 +35,7 @@ class FisheryRepositoryImpl(
 
             override suspend fun saveCallResult(data: List<FisheryResponse>) {
                 data.filter { fisheryResponse ->
-                    fisheryResponse.uuid !=null && fisheryResponse.price!=null
+                    fisheryResponse.uuid != null && fisheryResponse.price != null
                 }.let {
                     local.insertListFishery(it.toEntities())
                 }
@@ -77,6 +77,28 @@ class FisheryRepositoryImpl(
 
             override suspend fun createCall(): Flow<ApiResponse<List<SizeResponse>>> =
                 remote.getListSize()
+
+        }.asFlow()
+
+    override fun searchItem(query: String): Flow<Resource<List<Fishery>>> =
+        object : NetworkBoundResource<List<Fishery>, List<FisheryResponse>>() {
+
+            override fun shouldFetch(data: List<Fishery>?): Boolean =
+                data.isNullOrEmpty()
+
+            override fun loadFromDB(): Flow<List<Fishery>> =
+                local.searchItem(query).toFlowModels()
+
+            override suspend fun createCall(): Flow<ApiResponse<List<FisheryResponse>>> =
+                remote.getAllFishery()
+
+            override suspend fun saveCallResult(data: List<FisheryResponse>) {
+                data.filter { fisheryResponse ->
+                    fisheryResponse.uuid != null && fisheryResponse.price != null
+                }.let {
+                    local.insertListFishery(it.toEntities())
+                }
+            }
 
         }.asFlow()
 }

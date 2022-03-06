@@ -9,6 +9,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        startActivity(Intent(this, Class.forName("com.idmdragon.feature.ui.home.HomeActivity")))
+        startActivity(Intent(this, Class.forName("com.idmdragon.feature.ui.home.HomeActivity"))).also {
+            finish()
+        }
     }
 }

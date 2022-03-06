@@ -13,4 +13,5 @@
     <dimen name="text_size_18x">18sp</dimen>
     <dimen name="text_size_20x">20sp</dimen>
     <dimen name="text_size_24x">24sp</dimen>
+    <dimen name="spacing_40x">40dp</dimen>
 </resources>

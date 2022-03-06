@@ -17,4 +17,7 @@ class FisheryUsecaseImpl(private val fisheryRepository: FisheryRepository): Fish
 
     override fun getAllSize(): Flow<Resource<List<Size>>> =
         fisheryRepository.getAllSize()
+
+    override fun searchItem(query: String): Flow<Resource<List<Fishery>>> =
+        fisheryRepository.searchItem(query)
 }

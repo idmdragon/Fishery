@@ -35,4 +35,7 @@ interface FisheryDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertSize(areaEntity: List<SizeEntity>)
+
+    @Query("SELECT * FROM FisheryEntity WHERE komoditas LIKE '%'||:query||'%'")
+    fun searchItem(query: String): Flow<List<FisheryEntity>>
 }

@@ -24,4 +24,8 @@ class LocalDataSource(private val fisheryDao: FisheryDao) {
 
     suspend fun insertSize(listSizeEntity: List<SizeEntity>) =
         fisheryDao.insertSize(listSizeEntity)
+
+    fun searchItem(query: String): Flow<List<FisheryEntity>> =
+        fisheryDao.searchItem(query)
+
 }
