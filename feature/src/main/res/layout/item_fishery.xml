@@ -13,7 +13,7 @@
         android:id="@+id/layoutSize"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="@dimen/spacing_16x"
+        android:layout_marginVertical="@dimen/spacing_x24"
         android:layout_marginStart="@dimen/spacing_16x"
         android:background="@drawable/bg_circle"
         android:padding="@dimen/spacing_8x"
@@ -26,7 +26,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/blue"
-            android:textSize="@dimen/text_size_12x"
             android:textStyle="bold"
             tools:text="30" />
     </FrameLayout>
@@ -38,6 +37,7 @@
         android:layout_marginStart="@dimen/spacing_16x"
         android:textColor="@color/white"
         android:textStyle="bold"
+        android:textSize="@dimen/text_size_16x"
         app:layout_constraintStart_toEndOf="@id/layoutSize"
         app:layout_constraintTop_toTopOf="@id/layoutSize"
         tools:text="Udang Blilpi" />
@@ -47,7 +47,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/white"
-        android:textSize="@dimen/text_size_12x"
         android:textStyle="italic"
         app:layout_constraintStart_toStartOf="@id/tvKomoditas"
         app:layout_constraintTop_toBottomOf="@id/tvKomoditas"
@@ -60,6 +59,7 @@
         android:layout_marginEnd="@dimen/spacing_16x"
         android:textColor="@color/white"
         android:textStyle="bold"
+        android:textSize="@dimen/text_size_16x"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/tvKomoditas"
         tools:text="Rp1.000.000" />
@@ -69,7 +69,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/white"
-        android:textSize="@dimen/text_size_12x"
         app:layout_constraintEnd_toEndOf="@id/tvPrice"
         app:layout_constraintTop_toBottomOf="@id/tvPrice"
         tools:text="Madiun, Jawa Timur" />

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.add.AddActivity">
+
+    <ImageButton
+        android:id="@+id/ibBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/spacing_16x"
+        android:backgroundTint="@android:color/transparent"
+        android:padding="@dimen/spacing_16x"
+        android:src="@drawable/ic_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tambahkan Item"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_size_18x"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/ibBack"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/ibBack" />
+
+    <LinearLayout
+        android:layout_width="@dimen/spacing_0x"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/spacing_16x"
+        android:layout_marginTop="@dimen/spacing_16x"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ibBack">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilKomoditas"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_10x"
+            android:backgroundTint="@android:color/transparent"
+            app:boxBackgroundColor="@color/white"
+            app:boxStrokeColor="@color/blue"
+            app:hintTextColor="@color/blue">
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="text"
+                android:backgroundTint="@android:color/transparent"
+                android:hint="@string/feature_text_name_comodity"
+                android:textColorHighlight="@color/white" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilPrice"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_10x"
+            android:backgroundTint="@android:color/transparent"
+            app:boxBackgroundColor="@color/white"
+            app:boxStrokeColor="@color/blue"
+            app:hintTextColor="@color/blue">
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="number"
+                android:backgroundTint="@android:color/transparent"
+                android:hint="@string/feature_text_price_comodity"
+                android:textColorHighlight="@color/white" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilCityArea"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_10x"
+            android:hint="@string/feature_text_city_area"
+            app:boxBackgroundColor="@color/white"
+            app:boxStrokeColor="@color/blue"
+            app:hintTextColor="@color/blue">
+            <AutoCompleteTextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:backgroundTint="@android:color/transparent"
+                android:inputType="none" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilProvinceArea"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_10x"
+            android:hint="@string/feature_text_province_area"
+            app:boxBackgroundColor="@color/white"
+            app:boxStrokeColor="@color/blue"
+            app:hintTextColor="@color/blue"
+            >
+            <AutoCompleteTextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:backgroundTint="@android:color/transparent"
+                android:inputType="none" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilSize"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_10x"
+            android:hint="@string/feature_text_province_area"
+            app:boxBackgroundColor="@color/white"
+            app:boxStrokeColor="@color/blue"
+            app:hintTextColor="@color/blue"
+            >
+            <AutoCompleteTextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:backgroundTint="@android:color/transparent"
+                android:inputType="none"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+
+  <com.google.android.material.button.MaterialButton
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:backgroundTint="@color/blue"
+      android:paddingVertical="@dimen/spacing_16x"
+      android:layout_marginHorizontal="@dimen/spacing_16x"
+      app:layout_constraintBottom_toBottomOf="parent"
+      android:layout_marginBottom="@dimen/spacing_16x"
+      android:text="@string/feature_text_add_item"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

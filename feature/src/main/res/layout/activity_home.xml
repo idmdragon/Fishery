@@ -40,13 +40,14 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvFishery"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/size_0x"
+        android:layout_height="@dimen/spacing_0x"
         android:layout_marginTop="@dimen/spacing_16x"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:listitem="@layout/item_fishery"
         app:layout_constraintTop_toBottomOf="@id/etSearch" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAdd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/spacing_x24"
@@ -55,4 +56,13 @@
         android:backgroundTint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
