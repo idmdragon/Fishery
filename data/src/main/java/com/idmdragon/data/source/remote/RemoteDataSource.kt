@@ -4,6 +4,7 @@ import com.idmdragon.data.BuildConfig
 import com.idmdragon.data.source.remote.response.ApiResponse
 import com.idmdragon.data.source.remote.response.AreaResponse
 import com.idmdragon.data.source.remote.response.FisheryResponse
+import com.idmdragon.data.source.remote.response.SizeResponse
 import com.idmdragon.data.source.remote.service.FisheryService
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
@@ -31,5 +32,16 @@ class RemoteDataSource (private val fisheryService: FisheryService) {
                 emit(ApiResponse.Error(e.message.toString()))
             }
         }.flowOn(Dispatchers.IO)
+
+    fun getListSize(): Flow<ApiResponse<List<SizeResponse>>> =
+        flow {
+            try {
+                val response = fisheryService.getListSize(BuildConfig.API_KEY)
+                emit(ApiResponse.Success(response))
+            } catch (e: Exception) {
+                emit(ApiResponse.Error(e.message.toString()))
+            }
+        }.flowOn(Dispatchers.IO)
+
 
 }

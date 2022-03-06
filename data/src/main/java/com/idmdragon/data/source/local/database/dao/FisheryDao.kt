@@ -7,6 +7,7 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.idmdragon.data.source.local.entity.AreaEntity
 import com.idmdragon.data.source.local.entity.FisheryEntity
+import com.idmdragon.data.source.local.entity.SizeEntity
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -26,4 +27,9 @@ interface FisheryDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertArea(areaEntity: List<AreaEntity>)
 
+    @Query("SELECT size FROM SizeEntity")
+    fun selectAllSize(): Flow<List<SizeEntity>>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertSize(areaEntity: List<SizeEntity>)
 }

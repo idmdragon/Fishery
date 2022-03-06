@@ -41,8 +41,7 @@ class AddActivity : AppCompatActivity() {
                         viewModel.setAreaProvince(listAreaProvince)
                     }
                 }
-                is Resource.Loading -> {
-                }
+                is Resource.Loading -> { }
 
                 is Resource.Error -> {
                     Snackbar.make(
@@ -72,6 +71,35 @@ class AddActivity : AppCompatActivity() {
                     listProvince as ArrayList
                 )
             )
+        }
+
+        viewModel.getAllSize().observe(this) { resource ->
+            when (resource) {
+                is Resource.Success -> {
+                    resource.data?.let {
+                        val listSize = ArrayList<String>()
+                        it.map { size ->
+                            listSize.add(size.size)
+                        }
+                        binding.autoCompleteSize.setAdapter(
+                            ArrayAdapter(
+                                this@AddActivity,
+                                R.layout.category_list_dropdown_menu,
+                                listSize
+                            )
+                        )
+                    }
+                }
+                is Resource.Loading -> { }
+
+                is Resource.Error -> {
+                    Snackbar.make(
+                        binding.root,
+                        resource.message.toString(),
+                        Snackbar.LENGTH_LONG
+                    ).show()
+                }
+            }
         }
     }
 

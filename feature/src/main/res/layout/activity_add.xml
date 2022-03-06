@@ -15,7 +15,8 @@
         android:padding="@dimen/spacing_16x"
         android:src="@drawable/ic_back"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/feature_cd_back_button" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -126,6 +127,7 @@
             app:hintTextColor="@color/blue"
             >
             <AutoCompleteTextView
+                android:id="@+id/autoCompleteSize"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="@string/feature_text_size"

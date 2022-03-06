@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import com.idmdragon.domain.model.Area
+import com.idmdragon.domain.model.Size
 import com.idmdragon.domain.usecase.FisheryUsecase
 import com.idmdragon.domain.utils.Resource
 
@@ -27,4 +28,7 @@ class AddViewModel(private val useCase: FisheryUsecase) : ViewModel(){
 
     fun getAllArea(): LiveData<Resource<List<Area>>> =
         useCase.getAllArea().asLiveData()
+
+    fun getAllSize(): LiveData<Resource<List<Size>>> =
+        useCase.getAllSize().asLiveData()
 }

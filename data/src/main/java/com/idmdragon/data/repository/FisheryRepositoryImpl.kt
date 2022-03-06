@@ -8,8 +8,10 @@ import com.idmdragon.data.source.remote.RemoteDataSource
 import com.idmdragon.data.source.remote.response.ApiResponse
 import com.idmdragon.data.source.remote.response.AreaResponse
 import com.idmdragon.data.source.remote.response.FisheryResponse
+import com.idmdragon.data.source.remote.response.SizeResponse
 import com.idmdragon.domain.model.Area
 import com.idmdragon.domain.model.Fishery
+import com.idmdragon.domain.model.Size
 import com.idmdragon.domain.repository.FisheryRepository
 import com.idmdragon.domain.utils.Resource
 import kotlinx.coroutines.flow.Flow
@@ -55,5 +57,22 @@ class FisheryRepositoryImpl(
 
         }.asFlow()
 
+    override fun getAllSize(): Flow<Resource<List<Size>>> =
+        object : NetworkBoundResource<List<Size>, List<SizeResponse>>() {
+
+            override fun shouldFetch(data: List<Size>?): Boolean =
+                data == null || data.isEmpty()
+
+            override suspend fun saveCallResult(data: List<SizeResponse>) {
+                local.insertSize(data.toEntities())
+            }
+
+            override fun loadFromDB(): Flow<List<Size>> =
+                local.getAllSize().toFlowModels()
+
+            override suspend fun createCall(): Flow<ApiResponse<List<SizeResponse>>> =
+                remote.getListSize()
+
+        }.asFlow()
 }
 
