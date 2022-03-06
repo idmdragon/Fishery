@@ -6,4 +6,53 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeActivity">
 
+    <EditText
+        android:id="@+id/etSearch"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_16x"
+        android:autofillHints="username"
+        android:background="@drawable/bg_gray_radius_10"
+        android:drawableStart="@drawable/ic_search"
+        android:drawablePadding="@dimen/spacing_16x"
+        android:hint="@string/feature_hint_search"
+        android:imeOptions="actionSearch"
+        android:inputType="text"
+        android:layout_marginStart="@dimen/spacing_16x"
+        android:paddingHorizontal="@dimen/spacing_8x"
+        android:paddingVertical="@dimen/spacing_14x"
+        android:layout_marginEnd="@dimen/spacing_8x"
+        app:layout_constraintEnd_toStartOf="@id/ibFilter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/ibFilter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_filter"
+        app:layout_constraintTop_toTopOf="parent"
+        android:backgroundTint="@android:color/transparent"
+        android:layout_marginTop="@dimen/spacing_16x"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:paddingVertical="@dimen/spacing_14x"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvFishery"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_0x"
+        android:layout_marginTop="@dimen/spacing_16x"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:listitem="@layout/item_fishery"
+        app:layout_constraintTop_toBottomOf="@id/etSearch" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/spacing_x24"
+        android:contentDescription="@string/feature_text_cd_add_item"
+        android:src="@drawable/ic_add"
+        android:backgroundTint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

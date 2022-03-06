@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="@dimen/spacing_16x"
+    android:layout_marginBottom="@dimen/spacing_16x"
+    android:background="@drawable/bg_radius_10"
+    android:backgroundTint="@color/blue">
+
+    <FrameLayout
+        android:id="@+id/layoutSize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/spacing_16x"
+        android:layout_marginStart="@dimen/spacing_16x"
+        android:background="@drawable/bg_circle"
+        android:padding="@dimen/spacing_8x"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tvSize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/text_size_12x"
+            android:textStyle="bold"
+            tools:text="30" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/tvKomoditas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_16x"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/layoutSize"
+        app:layout_constraintTop_toTopOf="@id/layoutSize"
+        tools:text="Udang Blilpi" />
+
+    <TextView
+        android:id="@+id/tvDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_12x"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="@id/tvKomoditas"
+        app:layout_constraintTop_toBottomOf="@id/tvKomoditas"
+        tools:text="12 Desember 2020" />
+
+    <TextView
+        android:id="@+id/tvPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/spacing_16x"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tvKomoditas"
+        tools:text="Rp1.000.000" />
+
+    <TextView
+        android:id="@+id/tvLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_12x"
+        app:layout_constraintEnd_toEndOf="@id/tvPrice"
+        app:layout_constraintTop_toBottomOf="@id/tvPrice"
+        tools:text="Madiun, Jawa Timur" />
+</androidx.constraintlayout.widget.ConstraintLayout>
