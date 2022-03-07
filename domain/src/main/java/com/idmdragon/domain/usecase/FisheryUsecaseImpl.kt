@@ -32,4 +32,7 @@ class FisheryUsecaseImpl(private val fisheryRepository: FisheryRepository): Fish
         timestamp: String
     ): Flow<Resource<String>> =
         fisheryRepository.addFishery(uuid, commodity, areaProvince, areaCity, size, price, tgl_parsed, timestamp)
+
+    override fun clearAllFisher() =
+        fisheryRepository.clearAllFisher()
 }

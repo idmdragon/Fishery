@@ -16,6 +16,9 @@ interface FisheryDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertFishery(fishery: FisheryEntity)
 
+    @Query("DELETE FROM FisheryEntity")
+    fun clearFishery()
+
     @RawQuery(observedEntities = [FisheryEntity::class])
     fun selectAllFishery(query: SupportSQLiteQuery): Flow<List<FisheryEntity>>
 

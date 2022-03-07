@@ -21,4 +21,5 @@ interface FisheryUsecase {
         tgl_parsed: String,
         timestamp: String
     ): Flow<Resource<String>>
+    fun clearAllFisher()
 }

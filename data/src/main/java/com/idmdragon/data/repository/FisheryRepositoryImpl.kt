@@ -136,5 +136,9 @@ class FisheryRepositoryImpl(
             )
         }
     }.asFlow()
+
+    override fun clearAllFisher() {
+        local.clearFishery()
+    }
 }
 

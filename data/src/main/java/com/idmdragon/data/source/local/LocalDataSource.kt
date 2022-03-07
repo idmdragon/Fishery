@@ -33,4 +33,6 @@ class LocalDataSource(private val fisheryDao: FisheryDao) {
     fun searchItem(query: String): Flow<List<FisheryEntity>> =
         fisheryDao.searchItem(query)
 
+    fun clearFishery() = fisheryDao.clearFishery()
+
 }
