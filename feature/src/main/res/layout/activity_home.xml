@@ -35,7 +35,8 @@
         android:backgroundTint="@android:color/transparent"
         android:layout_marginTop="@dimen/spacing_16x"
         app:layout_constraintEnd_toEndOf="parent"
-        android:paddingVertical="@dimen/spacing_14x"/>
+        android:paddingVertical="@dimen/spacing_14x"
+        android:contentDescription="@string/feature_cd_filter" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvFishery"
@@ -43,6 +44,7 @@
         android:layout_height="@dimen/spacing_0x"
         android:layout_marginTop="@dimen/spacing_16x"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/item_fishery"
         app:layout_constraintTop_toBottomOf="@id/etSearch" />
 
@@ -61,6 +63,7 @@
         android:id="@+id/progressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:visibility="gone"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"

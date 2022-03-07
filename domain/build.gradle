@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.library'
     id 'kotlin-android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -37,4 +38,7 @@ dependencies {
     api "androidx.paging:paging-runtime-ktx:3.1.0"
     testImplementation 'org.mockito:mockito-core:3.11.2'
     testImplementation 'junit:junit:4.13.2'
+    implementation 'androidx.room:room-runtime:2.4.2'
+    kapt 'androidx.room:room-compiler:2.4.2'
+    implementation "androidx.room:room-ktx:2.4.2"
 }

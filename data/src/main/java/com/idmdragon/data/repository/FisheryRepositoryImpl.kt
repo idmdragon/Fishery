@@ -13,6 +13,7 @@ import com.idmdragon.domain.model.Area
 import com.idmdragon.domain.model.Fishery
 import com.idmdragon.domain.model.Size
 import com.idmdragon.domain.repository.FisheryRepository
+import com.idmdragon.domain.utils.FilterUtils.getFilteredQuery
 import com.idmdragon.domain.utils.Resource
 import kotlinx.coroutines.flow.Flow
 
@@ -21,14 +22,15 @@ class FisheryRepositoryImpl(
     private val remote: RemoteDataSource
 ) : FisheryRepository {
 
-    override fun getAllFishery(): Flow<Resource<List<Fishery>>> =
+    override fun getAllFishery(query: String, queryArea: Area): Flow<Resource<List<Fishery>>> =
         object : NetworkBoundResource<List<Fishery>, List<FisheryResponse>>() {
 
             override fun shouldFetch(data: List<Fishery>?): Boolean =
-                true
+                data == null || data.isEmpty()
 
-            override fun loadFromDB(): Flow<List<Fishery>> =
-                local.getAllFishery().toFlowModels()
+            override fun loadFromDB(): Flow<List<Fishery>> {
+                return local.getAllFishery(getFilteredQuery(query, queryArea)).toFlowModels()
+            }
 
             override suspend fun createCall(): Flow<ApiResponse<List<FisheryResponse>>> =
                 remote.getAllFishery()

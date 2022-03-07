@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:dist="http://schemas.android.com/apk/distribution"
-    package="com.idmdragon.feature" >
+    package="com.idmdragon.feature">
 
     <dist:module
         dist:instant="false"
-        dist:title="@string/title_feature" >
+        dist:title="@string/title_feature">
         <dist:delivery>
             <dist:install-time />
         </dist:delivery>
@@ -14,6 +14,9 @@
     </dist:module>
 
     <application>
+        <activity
+            android:name=".ui.filter.FilterActivity"
+            android:exported="false" />
         <activity
             android:name=".ui.add.AddActivity"
             android:exported="false" />

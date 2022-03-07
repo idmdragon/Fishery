@@ -1,10 +1,8 @@
 package com.idmdragon.data.source.local.database.dao
 
 import androidx.paging.PagingSource
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
+import androidx.sqlite.db.SupportSQLiteQuery
 import com.idmdragon.data.source.local.entity.AreaEntity
 import com.idmdragon.data.source.local.entity.FisheryEntity
 import com.idmdragon.data.source.local.entity.SizeEntity
@@ -18,11 +16,8 @@ interface FisheryDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertFishery(fishery: FisheryEntity)
 
-    @Query("SELECT * FROM FisheryEntity " +
-            "WHERE KOMODITAS IS NOT NULL " +
-            "AND PRICE IS NOT NULL" +
-            " ORDER BY timestamp ASC  ")
-    fun selectAllFishery(): Flow<List<FisheryEntity>>
+    @RawQuery(observedEntities = [FisheryEntity::class])
+    fun selectAllFishery(query: SupportSQLiteQuery): Flow<List<FisheryEntity>>
 
     @Query("SELECT * FROM AreaEntity")
     fun selectAllArea(): Flow<List<AreaEntity>>

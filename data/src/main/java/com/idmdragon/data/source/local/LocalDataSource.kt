@@ -1,5 +1,6 @@
 package com.idmdragon.data.source.local
 
+import androidx.sqlite.db.SupportSQLiteQuery
 import com.idmdragon.data.source.local.database.dao.FisheryDao
 import com.idmdragon.data.source.local.entity.AreaEntity
 import com.idmdragon.data.source.local.entity.FisheryEntity
@@ -7,8 +8,9 @@ import com.idmdragon.data.source.local.entity.SizeEntity
 import kotlinx.coroutines.flow.Flow
 
 class LocalDataSource(private val fisheryDao: FisheryDao) {
-    fun getAllFishery(): Flow<List<FisheryEntity>> =
-        fisheryDao.selectAllFishery()
+
+    fun getAllFishery(query: SupportSQLiteQuery): Flow<List<FisheryEntity>> =
+        fisheryDao.selectAllFishery(query)
 
     suspend fun insertListFishery(listPexels: List<FisheryEntity>) =
         fisheryDao.insertListFishery(listPexels)
