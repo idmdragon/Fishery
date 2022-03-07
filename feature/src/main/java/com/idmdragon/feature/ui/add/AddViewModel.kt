@@ -9,16 +9,16 @@ import com.idmdragon.domain.model.Size
 import com.idmdragon.domain.usecase.FisheryUsecase
 import com.idmdragon.domain.utils.Resource
 
-class AddViewModel(private val useCase: FisheryUsecase) : ViewModel(){
+class AddViewModel(private val useCase: FisheryUsecase) : ViewModel() {
 
     private val listAreaProvince = MutableLiveData<List<String>>()
     private val listAreaCity = MutableLiveData<List<String>>()
 
-    fun setAreaProvince(listItem: List<String>){
+    fun setAreaProvince(listItem: List<String>) {
         listAreaProvince.value = listItem
     }
 
-    fun setAreaCity(listItem: List<String>){
+    fun setAreaCity(listItem: List<String>) {
         listAreaCity.value = listItem
     }
 
@@ -31,4 +31,16 @@ class AddViewModel(private val useCase: FisheryUsecase) : ViewModel(){
 
     fun getAllSize(): LiveData<Resource<List<Size>>> =
         useCase.getAllSize().asLiveData()
+
+    fun addFishery(
+        uuid: String,
+        commodity: String,
+        areaProvince: String,
+        areaCity: String,
+        size: String,
+        price: String,
+        tgl_parsed: String,
+        timestamp: String
+    ): LiveData<Resource<String>> =
+        useCase.addFishery(uuid, commodity, areaProvince, areaCity, size, price, tgl_parsed, timestamp).asLiveData()
 }

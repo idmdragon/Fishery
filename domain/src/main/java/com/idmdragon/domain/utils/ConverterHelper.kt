@@ -1,6 +1,5 @@
-package com.idmdragon.feature.utils
+package com.idmdragon.domain.utils
 
-import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.*
 

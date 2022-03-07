@@ -11,5 +11,14 @@ interface FisheryUsecase {
     fun getAllArea(): Flow<Resource<List<Area>>>
     fun getAllSize(): Flow<Resource<List<Size>>>
     fun searchItem(query: String): Flow<Resource<List<Fishery>>>
-
+    fun addFishery(
+        uuid: String,
+        commodity: String,
+        areaProvince: String,
+        areaCity: String,
+        size: String,
+        price: String,
+        tgl_parsed: String,
+        timestamp: String
+    ): Flow<Resource<String>>
 }

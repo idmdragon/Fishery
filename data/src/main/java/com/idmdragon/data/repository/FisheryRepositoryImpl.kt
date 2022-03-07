@@ -3,12 +3,11 @@ package com.idmdragon.data.repository
 import com.idmdragon.data.mapper.toEntities
 import com.idmdragon.data.mapper.toFlowModels
 import com.idmdragon.data.source.NetworkBoundResource
+import com.idmdragon.data.source.NetworkResource
 import com.idmdragon.data.source.local.LocalDataSource
+import com.idmdragon.data.source.local.entity.FisheryEntity
 import com.idmdragon.data.source.remote.RemoteDataSource
-import com.idmdragon.data.source.remote.response.ApiResponse
-import com.idmdragon.data.source.remote.response.AreaResponse
-import com.idmdragon.data.source.remote.response.FisheryResponse
-import com.idmdragon.data.source.remote.response.SizeResponse
+import com.idmdragon.data.source.remote.response.*
 import com.idmdragon.domain.model.Area
 import com.idmdragon.domain.model.Fishery
 import com.idmdragon.domain.model.Size
@@ -103,5 +102,39 @@ class FisheryRepositoryImpl(
             }
 
         }.asFlow()
+
+    override fun addFishery(
+        uuid: String,
+        commodity: String,
+        areaProvince: String,
+        areaCity: String,
+        size: String,
+        price: String,
+        tgl_parsed: String,
+        timestamp: String
+    ): Flow<Resource<String>> = object : NetworkResource<String, PostResponse>() {
+        override suspend fun createCall(): Flow<ApiResponse<PostResponse>> =
+            remote.addFishery(uuid, commodity, areaProvince, areaCity, size, price, tgl_parsed, timestamp)
+
+        override fun convertResponseToModel(response: PostResponse): String {
+            return response.updatedRange
+        }
+
+        override suspend fun onFetchSuccess() {
+            super.onFetchSuccess()
+            local.insertFishery(
+                FisheryEntity(
+                    area_kota = areaCity,
+                    area_provinsi = areaProvince,
+                    komoditas = commodity,
+                    price = price,
+                    size = size,
+                    tgl_parsed = tgl_parsed,
+                    timestamp = timestamp,
+                    uuid = uuid
+                )
+            )
+        }
+    }.asFlow()
 }
 

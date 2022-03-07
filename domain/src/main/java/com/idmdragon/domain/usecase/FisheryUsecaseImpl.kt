@@ -20,4 +20,16 @@ class FisheryUsecaseImpl(private val fisheryRepository: FisheryRepository): Fish
 
     override fun searchItem(query: String): Flow<Resource<List<Fishery>>> =
         fisheryRepository.searchItem(query)
+
+    override fun addFishery(
+        uuid: String,
+        commodity: String,
+        areaProvince: String,
+        areaCity: String,
+        size: String,
+        price: String,
+        tgl_parsed: String,
+        timestamp: String
+    ): Flow<Resource<String>> =
+        fisheryRepository.addFishery(uuid, commodity, areaProvince, areaCity, size, price, tgl_parsed, timestamp)
 }

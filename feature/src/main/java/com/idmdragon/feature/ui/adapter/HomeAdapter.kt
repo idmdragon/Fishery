@@ -1,14 +1,12 @@
 package com.idmdragon.feature.ui.adapter
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.idmdragon.domain.model.Fishery
 import com.idmdragon.feature.R
 import com.idmdragon.feature.databinding.ItemFisheryBinding
-import com.idmdragon.feature.utils.ConverterHelper
-import java.util.*
+import com.idmdragon.domain.utils.ConverterHelper
 
 
 class HomeAdapter : RecyclerView.Adapter<HomeAdapter.ViewHolder>() {

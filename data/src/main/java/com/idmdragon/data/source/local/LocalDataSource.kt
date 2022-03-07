@@ -12,8 +12,11 @@ class LocalDataSource(private val fisheryDao: FisheryDao) {
     fun getAllFishery(query: SupportSQLiteQuery): Flow<List<FisheryEntity>> =
         fisheryDao.selectAllFishery(query)
 
-    suspend fun insertListFishery(listPexels: List<FisheryEntity>) =
-        fisheryDao.insertListFishery(listPexels)
+    suspend fun insertListFishery(fishery: List<FisheryEntity>) =
+        fisheryDao.insertListFishery(fishery)
+
+    suspend fun insertFishery(fishery: FisheryEntity) =
+        fisheryDao.insertFishery(fishery)
 
     fun getAllArea(): Flow<List<AreaEntity>> =
         fisheryDao.selectAllArea()

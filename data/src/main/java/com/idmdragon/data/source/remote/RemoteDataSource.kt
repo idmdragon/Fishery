@@ -1,10 +1,7 @@
 package com.idmdragon.data.source.remote
 
 import com.idmdragon.data.BuildConfig
-import com.idmdragon.data.source.remote.response.ApiResponse
-import com.idmdragon.data.source.remote.response.AreaResponse
-import com.idmdragon.data.source.remote.response.FisheryResponse
-import com.idmdragon.data.source.remote.response.SizeResponse
+import com.idmdragon.data.source.remote.response.*
 import com.idmdragon.data.source.remote.service.FisheryService
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
@@ -43,5 +40,30 @@ class RemoteDataSource (private val fisheryService: FisheryService) {
             }
         }.flowOn(Dispatchers.IO)
 
+
+    fun addFishery(
+        uuid: String,
+        commodity: String,
+        areaProvince: String,
+        areaCity: String,
+        size: String,
+        price: String,
+        tgl_parsed: String,
+        timestamp: String
+    ): Flow<ApiResponse<PostResponse>> =
+        flow {
+            try {
+                val fisheryBody = FisheryBody(
+                   uuid, commodity, areaProvince, areaCity, size, price, tgl_parsed, timestamp
+                )
+                val response = fisheryService.addListItem(
+                        BuildConfig.API_KEY,
+                        fisheryBody.asRequestBody(),
+                    )
+                emit(ApiResponse.Success(response))
+            } catch (e: Exception) {
+                emit(ApiResponse.Error(e.message.toString()))
+            }
+        }.flowOn(Dispatchers.IO)
 
 }
